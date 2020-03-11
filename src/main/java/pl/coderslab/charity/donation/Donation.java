@@ -1,6 +1,5 @@
 package pl.coderslab.charity.donation;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,30 +17,38 @@ import java.time.LocalTime;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-@Table(name = "donation")
+@Table(name = "donations")
 public class Donation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Range(min = 1, max = 2147483647)
     private int quantity;
+
     @ManyToOne
     private Category categories;
+
     @ManyToOne
     private Institution institution;
+
     @NotEmpty
     private String street;
+
     @NotEmpty
     private String city;
+
     @NotEmpty
     private String zipCode;
+
     @NotEmpty
     @DateTimeFormat(pattern = "dd.mm.yyyy")
     private LocalDate pickUpDate;
+
     @NotEmpty
     @DateTimeFormat(pattern = "hh")
     private LocalTime pickUpTime;
+
     private String pickUpComment;
 }

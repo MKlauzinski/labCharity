@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="<c:url value="resources/css/style.css"/>"/>
 </head>
 <body>
-<%@include file="header.jsp"%>
+<%@include file="header.jsp" %>
 
 <section class="stats">
     <div class="container container--85">
@@ -84,36 +84,27 @@
             Możesz sprawdzić czym się zajmują.</p>
 
         <ul class="help--slides-items">
-            <li>
+            <c:forEach items="${institutions}" varStatus="count" var="institution">
+                <c:if test="${count.count mod 2 == 1 && count.last == false}">
+                    <li>
+                </c:if>
                 <div class="col">
-                    <div class="title">Fundacja "Dbam o Zdrowie"</div>
-                    <div class="subtitle">Cel i misja: Pomoc dzieciom z ubogich rodzin.</div>
+                    <div class="title">Fundacja: "${institution.name}"</div>
+                    <div class="subtitle">Cel i misja: ${institution.description}</div>
                 </div>
-
-                <div class="col">
-                    <div class="title">Fundacja "A kogo"</div>
-                    <div class="subtitle">Cel i misja: Pomoc wybudzaniu dzieci ze śpiączki.</div>
-                </div>
-            </li>
-
-            <li>
-                <div class="col">
-                    <div class="title">Fundacja “Dla dzieci"</div>
-                    <div class="subtitle">Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</div>
-                </div>
-                <div class="col">
-                    <div class="title">Fundacja “Bez domu”</div>
-                    <div class="subtitle">Cel i misja: Pomoc dla osób nie posiadających miejsca zamieszkania</div>
-                </div>
-
-            </li>
-
+                <c:if test="${count.count mod 2 == 1 && count.last == true}">
+                    </li>
+                </c:if>
+                <c:if test="${count.count mod 2 == 0}">
+                    </li>
+                </c:if>
+            </c:forEach>
         </ul>
     </div>
 
 </section>
 
-<%@include file="footer.jsp"%>
+<%@include file="footer.jsp" %>
 <script src="<c:url value="resources/js/app.js"/>"></script>
 </body>
 </html>
