@@ -9,9 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/donation")
 @RequiredArgsConstructor
 public class DonationController {
+    private final DonationService donationService;
 
     @RequestMapping("/form")
     public String homeAction(Model model) {
+        model.addAttribute("institutions", donationService.institutionList());
+        model.addAttribute("categorieslist", donationService.categoryList());
+        model.addAttribute("donation", new Donation());
         return "donation/form";
     }
+
 }

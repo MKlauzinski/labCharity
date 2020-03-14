@@ -12,6 +12,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -27,8 +28,12 @@ public class Donation {
     @Range(min = 1, max = 2147483647)
     private int quantity;
 
-    @ManyToOne
-    private Category categories;
+    @NotEmpty
+    @ManyToMany
+    @JoinTable(name = "categories_donations",
+            joinColumns = @JoinColumn(name = "categories_id"),
+            inverseJoinColumns = @JoinColumn(name = "donations_id"))
+    private List<Category> categories;
 
     @ManyToOne
     private Institution institution;
