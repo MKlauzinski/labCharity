@@ -48,11 +48,14 @@ public class Donation {
     private String zipCode;
 
     @NotEmpty
-    @DateTimeFormat(pattern = "dd.mm.yyyy")
+    private String phoneNumber;
+
+    @NotEmpty
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
 
     @NotEmpty
-    @DateTimeFormat(pattern = "hh")
+    @DateTimeFormat(pattern = "hh:mm")
     private LocalTime pickUpTime;
 
     private String pickUpComment;
