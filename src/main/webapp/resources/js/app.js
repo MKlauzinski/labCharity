@@ -126,7 +126,9 @@ document.addEventListener("DOMContentLoaded", function() {
         btn.addEventListener("click", e => {
           e.preventDefault();
           this.currentStep++;
+
           this.updateForm();
+
         });
       });
 
@@ -164,7 +166,25 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
       // TODO: get data from inputs and show them in summary
-      
+      if (this.currentStep == 5){
+        document.getElementById("summary_bags").innerHTML = "Zaoferowanych worków z darami " + document.getElementById("quantity").value;
+        let i;
+        for(i = 0; i < document.getElementsByName("organization").length; i++) {
+          if (document.getElementsByName("organization").item(i).checked == true) {
+            document.getElementById("summary_institution").innerHTML = document.getElementsByName("organization").item(i).parentElement.getElementsByClassName("title").item(1).innerText;
+          }
+        }
+
+        document.getElementById("summary_street").innerHTML = document.getElementById("street").value;
+        document.getElementById("summary_city").innerHTML = document.getElementById("city").value;
+        document.getElementById("summary_zipCode").innerHTML = document.getElementById("zipCode").value;
+        document.getElementById("summary_phoneNumber").innerHTML = document.getElementById("phoneNumber").value;
+
+        document.getElementById("summary_pickUpDate").innerHTML = document.getElementById("pickUpDate").value;
+        document.getElementById("summary_pickUpTime").innerHTML = document.getElementById("pickUpTime").value;
+        document.getElementById("summary_pickUpComment").innerHTML = document.getElementById("pickUpComment").value;
+      }
+
     }
 
   }

@@ -87,7 +87,7 @@
                             <input path="institution" name="organization" type="radio" value="${institut.id}">
                             <span class="checkbox radio"></span>
                             <span class="description">
-                                <div class="title">Fundacja "${institut.name}"</div>
+                                <div id="institution" class="title">Fundacja "${institut.name}"</div>
                                 <div class="subtitle">Cel i misja: ${institut.description}</div>
                             </span>
                         </label>
@@ -116,15 +116,11 @@
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label>
-                                Kod pocztowy <form:input path="zipCode" type="text" name="zipCode"/>
-                            </label>
+                            <label>Kod pocztowy <form:input path="zipCode" type="text" name="zipCode"/></label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label>
-                                Numer telefonu <form:input path="phoneNumber" type="phone" name="phoneNumber"/>
-                            </label>
+                            <label>Numer telefonu <form:input path="phoneNumber" type="phone" name="phoneNumber"/></label>
                         </div>
                     </div>
 
@@ -139,10 +135,7 @@
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label>
-                                Uwagi dla kuriera
-                                <form:textarea path="" name="more_info" rows="5"></form:textarea>
-                            </label>
+                            <label>Uwagi dla kuriera<form:textarea path="pickUpComment" name="pickUpComment" rows="5"></form:textarea></label>
                         </div>
                     </div>
                 </div>
@@ -162,12 +155,12 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span class="summary--text">4 worki ubrań w dobrym stanie dla dzieci</span>
+                                <span id="summary_bags" class="summary--text">4 worki ubrań w dobrym stanie dla dzieci</span>
                             </li>
 
                             <li>
                                 <span class="icon icon-hand"></span>
-                                <span class="summary--text">Dla fundacji "Mam marzenie" w Warszawie</span>
+                                <span id="summary_institution" class="summary--text">Dla fundacji "Mam marzenie" w Warszawie</span>
                             </li>
                         </ul>
                     </div>
@@ -176,19 +169,19 @@
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
                             <ul>
-                                <li>Prosta 51</li>
-                                <li>Warszawa</li>
-                                <li>99-098</li>
-                                <li>123 456 789</li>
+                                <li id="summary_street">Prosta 51</li>
+                                <li id="summary_city">Warszawa</li>
+                                <li id="summary_zipCode">99-098</li>
+                                <li id="summary_phoneNumber">123 456 789</li>
                             </ul>
                         </div>
 
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
                             <ul>
-                                <li>13/12/2018</li>
-                                <li>15:40</li>
-                                <li>Brak uwag</li>
+                                <li id="summary_pickUpDate">13/12/2018</li>
+                                <li id="summary_pickUpTime">15:40</li>
+                                <li id="summary_pickUpComment">Brak uwag</li>
                             </ul>
                         </div>
                     </div>
