@@ -169,9 +169,9 @@ document.addEventListener("DOMContentLoaded", function() {
       if (this.currentStep == 5){
         document.getElementById("summary_bags").innerHTML = "Zaoferowanych worków z darami " + document.getElementById("quantity").value;
         let i;
-        for(i = 0; i < document.getElementsByName("organization").length; i++) {
-          if (document.getElementsByName("organization").item(i).checked == true) {
-            document.getElementById("summary_institution").innerHTML = document.getElementsByName("organization").item(i).parentElement.getElementsByClassName("title").item(1).innerText;
+        for(i = 0; i < document.getElementsByName("institution").length; i++) {
+          if (document.getElementsByName("institution").item(i).checked == true) {
+            document.getElementById("summary_institution").innerHTML = document.getElementsByName("institution").item(i).parentElement.getElementsByClassName("title").item(0).innerText;
           }
         }
 

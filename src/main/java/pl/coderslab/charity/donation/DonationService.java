@@ -31,4 +31,8 @@ public class DonationService {
     public List<Institution> institutionList() {
         return institutionJpaRepository.findAll();
     }
+
+    public void save(Donation donation) {
+        donationJpaRepository.save(donation);
+    }
 }
