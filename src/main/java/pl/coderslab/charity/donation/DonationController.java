@@ -35,17 +35,6 @@ public class DonationController {
         if(bindingResult.hasErrors()) {
             return "donation/form";
         }
-        /** control section
-         * System.out.println(donation.getQuantity());
-        System.out.println(donation.getCategories().get(0).getName());
-        System.out.println(donation.getInstitution().getName());
-        System.out.println(donation.getStreet());
-        System.out.println(donation.getCity());
-        System.out.println(donation.getZipCode());
-        System.out.println(donation.getPhoneNumber());
-        System.out.println(donation.getPickUpDate());
-        System.out.println(donation.getPickUpTime());
-        System.out.println(donation.getPickUpComment());*/
         donationService.save(donation);
         return "redirect:/donation/form-confirmation";
     }
