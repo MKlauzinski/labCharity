@@ -24,10 +24,10 @@ public class User {
     private String name;
 
     @NotEmpty
-    private String firstname;
+    private String firstName;
 
     @NotEmpty
-    private String surname;
+    private String lastName;
 
     @Email
     private String email;

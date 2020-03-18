@@ -9,7 +9,6 @@ import pl.coderslab.charity.donation.DonationService;
 
 @Controller
 @RequiredArgsConstructor
-
 public class HomeController {
     private final DonationService donationService;
 
@@ -21,8 +20,4 @@ public class HomeController {
         return "index";
     }
 
-    @RequestMapping("/login")
-    public String loginAction() {
-        return "login";
-    }
 }

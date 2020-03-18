@@ -45,15 +45,15 @@
                 <h3>Zaznacz co chcesz oddać:</h3>
 
                 <form:errors path="categories" cssClass="error"/>
-                <c:forEach items="${categorieslist}" var="category">
-                    <div class="form-group form-group--checkbox">
-                        <label>
-                            <input path="categories" type="checkbox" name="categories" value="${category.id}" multiple="true"/>
-                            <span class="checkbox"></span>
-                            <span class="description">${category.name}</span>
-                        </label>
-                    </div>
-                </c:forEach>
+                    <c:forEach items="${categorieslist}" var="category">
+                        <div class="form-group form-group--checkbox">
+                            <label>
+                                <input path="categories" type="checkbox" name="categories" value="${category.id}" multiple="true"/>
+                                <span class="checkbox"></span>
+                                <span class="description">${category.name}</span>
+                            </label>
+                        </div>
+                    </c:forEach>
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn next-step">Dalej</button>
@@ -87,7 +87,7 @@
                 <c:forEach items="${institutions}" var="institut">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <input path="institution" name="institution" type="radio" value="${institut.id}">
+                            <form:input path="institution" name="institution" value="${institut.id}"/>
                             <span class="checkbox radio"></span>
                             <span class="description">
                                 <div id="institution" class="title">Fundacja "${institut.name}"</div>
@@ -127,7 +127,8 @@
 
                         <div class="form-group form-group--inline">
                             <form:errors path="phoneNumber" cssClass="error"/>
-                            <label>Numer telefonu <form:input path="phoneNumber" type="phone" name="phoneNumber"/></label>
+                            <label>Numer telefonu <form:input path="phoneNumber" type="phone"
+                                                              name="phoneNumber"/></label>
                         </div>
                     </div>
 
@@ -145,7 +146,8 @@
 
                         <div class="form-group form-group--inline">
                             <form:errors path="PickUpComment" cssClass="error"/>
-                            <label>Uwagi dla kuriera <form:textarea path="pickUpComment" name="pickUpComment" rows="5"></form:textarea></label>
+                            <label>Uwagi dla kuriera <form:textarea path="pickUpComment" name="pickUpComment"
+                                                                    rows="5"></form:textarea></label>
                         </div>
                     </div>
                 </div>
@@ -165,7 +167,8 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span id="summary_bags" class="summary--text">4 worki ubrań w dobrym stanie dla dzieci</span>
+                                <span id="summary_bags"
+                                      class="summary--text">4 worki ubrań w dobrym stanie dla dzieci</span>
                             </li>
 
                             <li>
