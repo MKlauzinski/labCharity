@@ -7,6 +7,7 @@ import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 import pl.coderslab.charity.category.Category;
 import pl.coderslab.charity.institution.Institution;
+import pl.coderslab.charity.user.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -57,4 +58,7 @@ public class Donation {
     private LocalTime pickUpTime;
 
     private String pickUpComment;
+
+    //@ManyToOne
+    //private User user;
 }
