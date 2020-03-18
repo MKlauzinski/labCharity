@@ -24,6 +24,9 @@ public class User {
     private String name;
 
     @NotEmpty
+    private String firstname;
+
+    @NotEmpty
     private String surname;
 
     @Email
