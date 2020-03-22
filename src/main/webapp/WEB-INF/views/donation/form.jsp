@@ -45,15 +45,22 @@
                 <h3>Zaznacz co chcesz oddać:</h3>
 
                 <form:errors path="categories" cssClass="error"/>
-                    <c:forEach items="${categorieslist}" var="category">
-                        <div class="form-group form-group--checkbox">
-                            <label>
-                                <input path="categories" type="checkbox" name="categories" value="${category.id}" multiple="true"/>
-                                <span class="checkbox"></span>
-                                <span class="description">${category.name}</span>
-                            </label>
-                        </div>
-                    </c:forEach>
+                <c:forEach items="${categorieslist}" var="category">
+                    <div class="form-group form-group--checkbox">
+                        <label>
+                            <input path="categories" type="checkbox" name="categories" value="${category.id}"
+                                   multiple="true"
+                                    <c:forEach items="${donation.categories}" var="donat_cat">
+                                        <c:if test="${category.id == donat_cat.id}">
+                                            checked
+                                        </c:if>
+                                    </c:forEach>
+                            />
+                            <span class="checkbox"></span>
+                            <span class="description">${category.name}</span>
+                        </label>
+                    </div>
+                </c:forEach>
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn next-step">Dalej</button>
@@ -87,7 +94,12 @@
                 <c:forEach items="${institutions}" var="institut">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <form:input path="institution" name="institution" value="${institut.id}"/>
+                            <input path="institution" name="institution" type="radio" value="${institut.id}"
+                                   multiple="false"
+                                    <c:if test="${donation.institution.id == institut.id}">
+                                        checked
+                                    </c:if>
+                            />
                             <span class="checkbox radio"></span>
                             <span class="description">
                                 <div id="institution" class="title">Fundacja "${institut.name}"</div>
